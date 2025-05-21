@@ -13,14 +13,24 @@
 .title {
   position: absolute;
   width: 100%;
-  text-align: center;
-  margin-top: 50px;
-  top: 0;
+  top: 120px; /* lebih stabil daripada margin-top */
   left: 0;
   color: white;
   font-family: "Courier New", Courier, monospace;
-  font-size: 70px;
-  text-shadow: 0px 0px 20px white;
+  font-size: 8vw; /* responsif di mobile */
+  text-align: center;
+  text-shadow: 0 0 10px white, 0 0 20px #e53636, 0 0 30px #e53636;
+  animation: glow 2s ease-in-out infinite alternate;
+  z-index: 10;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px white, 0 0 10px #e53636, 0 0 15px #e53636;
+  }
+  to {
+    text-shadow: 0 0 20px white, 0 0 30px #e53636, 0 0 40px #e53636;
+  }
 }
 
 body {
