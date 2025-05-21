@@ -2,7 +2,7 @@ window.onload = () => {
   const sound = document.getElementById("bloomSound");
   sound.volume = 1;
   sound.muted = false;
-  sound.loop = true; // <-- supaya looping otomatis
+  sound.loop = true;
 
   sound.play().catch((e) => {
     console.log("Autoplay suara gagal, browser mungkin butuh interaksi:", e);
@@ -11,26 +11,22 @@ window.onload = () => {
   const c = setTimeout(() => {
     document.body.classList.remove("not-loaded");
 
-    const titles = "I Love U".split("");
+    const text = "I found love, and it's spelled: <br>Naswa Aulia Putri";
     const titleElement = document.getElementById("title");
     let index = 0;
 
     function appendTitle() {
-      if (index < titles.length) {
-        titleElement.innerHTML += titles[index];
-        index++;
-        setTimeout(appendTitle, 300);
-      } else {
-        const naswaElement = document.createElement("div");
-        naswaElement.textContent = "NASWA";
-        naswaElement.style.marginTop = "10px";
-        titleElement.parentNode.insertBefore(
-          naswaElement,
-          titleElement.nextSibling
-        );
+      if (index < text.length) {
+        if (text.startsWith("<br>", index)) {
+          titleElement.innerHTML += "<br>";
+          index += 4; // loncat 4 karakter <br>
+        } else {
+          titleElement.innerHTML += text[index];
+          index++;
+        }
+        setTimeout(appendTitle, 80);
       }
     }
-
     appendTitle();
 
     clearTimeout(c);
