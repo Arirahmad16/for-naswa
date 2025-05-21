@@ -245,7 +245,7 @@ body {
   transform-origin: bottom left;
   border-radius: 4vmin 10vmin 4vmin 4vmin;
   transform: translate(0%, 18%) rotateX(70deg) rotate(-43deg);
-  background-image: linear-gradient(to top, rgba(255, 2555, 255, 0.4), #7d0707);
+  background-image: linear-gradient(to top, rgba(255, 2555, 255, 0.4), #f8b611);
   z-index: 1;
   opacity: 0.8;
   -webkit-transform: translate(0%, 18%) rotateX(70deg) rotate(-43deg);
@@ -390,7 +390,7 @@ body {
       transparent,
       rgba(255, 255, 255, 0.2)
     ),
-    linear-gradient(to top, transparent 10%, #036226, #7d0707);
+    linear-gradient(to top, transparent 10%, #4c6c1b, #4c6c1b);
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
   animation: grow-flower-tree 4s backwards;
 }
@@ -405,7 +405,11 @@ body {
   height: var(--h);
   border-top-right-radius: var(--h);
   border-bottom-left-radius: var(--h);
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.4), #7d0707);
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.153),
+    #036226
+  );
 }
 
 .flower__line__leaf--1 {
