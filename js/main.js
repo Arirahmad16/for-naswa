@@ -11,7 +11,7 @@ window.onload = () => {
   const c = setTimeout(() => {
     document.body.classList.remove("not-loaded");
 
-    const titles = "I LOVE U".split("");
+    const titles = "I Love U".split("");
     const titleElement = document.getElementById("title");
     let index = 0;
 
@@ -22,7 +22,7 @@ window.onload = () => {
         setTimeout(appendTitle, 300);
       } else {
         const naswaElement = document.createElement("div");
-        naswaElement.textContent = "naswa";
+        naswaElement.textContent = "NASWA";
         naswaElement.style.marginTop = "10px";
         titleElement.parentNode.insertBefore(
           naswaElement,
