@@ -1,22 +1,33 @@
 const title = document.querySelector(".title");
-const text = `gua punya sesuatu`.split("");
+const rawText = "i have a<br>something wa";
 
-// Create container for better responsive layout
-title.style.display = "flex";
-title.style.flexWrap = "wrap";
-title.style.justifyContent = "center";
-title.style.gap = "0.5rem";
+title.innerHTML = "";
 
-for (let index = 0; index < text.length; index++) {
-  if (text[index] !== " ") {
-    title.innerHTML += `<span>${text[index]}</span>`;
-  } else {
-    title.innerHTML += `<span style='width: 1rem'></span>`;
+const lines = rawText.split("<br>");
+
+lines.forEach((lineText, i) => {
+  const lineDiv = document.createElement("div");
+  lineDiv.classList.add("line");
+  if (i === 1) lineDiv.classList.add("left"); // baris ke-2 rata kiri
+
+  let index = 0;
+
+  function appendChar() {
+    if (index < lineText.length) {
+      const span = document.createElement("span");
+      const char = lineText[index];
+      if (char === " ") {
+        span.style.width = "1rem";
+        span.innerHTML = "&nbsp;";
+      } else {
+        span.textContent = char;
+      }
+      lineDiv.appendChild(span);
+      index++;
+      setTimeout(appendChar, 80);
+    }
   }
-}
+  appendChar();
 
-const textElements = document.querySelectorAll(".title span");
-textElements.forEach((element) => {
-  const randomDelay = Math.random() * 3;
-  element.style.animationDelay = `${randomDelay}s`;
+  title.appendChild(lineDiv);
 });
